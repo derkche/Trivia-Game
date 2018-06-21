@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
     var intID 
-    var timeLeft = 31;
-    var clockIsRunning = false;
+    var timeLeft = 30;
+    var clockRunning = false;
 
     function time_converter(t) {
 
@@ -32,38 +32,49 @@ $(document).ready(function() {
         
         //This is called when id=answer is chosen
         function Question1Correct () {
-            $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Correct!</h2><br><p>The correct answer was: A river</p>")
+            $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Correct!</h2><br><p>The correct answer was: A towel</p>")
+            clearTimeout(Question1TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(Question2, 1000*5);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question2, 1000*4);
         };
         //This is called when id=wrong answer is chosen
         function Question1Incorrect () {
-            $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Sorry, </h2><br><p>The correct answer was: A river</p>")
+            $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Sorry, </h2><br><p>The correct answer was: A towel</p>")
+            clearTimeout(Question1TimeOut);
             clearInterval (intID);
-            timeLeft = 5;
-            setTimeout(Question2, 1000*5);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question2, 1000*4);
         };
         //This is called when timeout is reached
         function Question1TimeOut () {
-            $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Time Out!</h2><br><p>The correct answer was: A river</p>")
+            $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Time Out!</h2><br><p>The correct answer was: A towel</p>")
+            clearTimeout(Question1TimeOut);
             clearInterval (intID);
-            timeLeft = 5;
-            setTimeout(Question2, 1000*5);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question2, 1000*4);
         };
 
         $("#answer1").click(Question1Correct) 
         $("#wrong_answer1").click(Question1Incorrect)
 
         function setTime () {
-            timeLeft = 31;
             timeLeft --
             convertedTime = time_converter(timeLeft) 
             $("#time_remaining").html(convertedTime)
         };
 
-        intID = setInterval(setTime,1000)
-        setTimeout(Question1TimeOut,1000*31); 
+        
+        //controls the behavior of the onscreen timer
+        if (!clockRunning) {
+            timeLeft = 30;
+            intID = setInterval(setTime, 1000);
+            setTimeout(Question1TimeOut,1000*30); 
+            clockRunning = true;
+        }
 
     };
 
@@ -73,23 +84,29 @@ $(document).ready(function() {
 
         function Question2Correct () {
             "<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Correct!</h2><br><p>The correct answer was: A hole</p>"
+            clearTimeout(Question2TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(Question3, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question3, 1000*4);
         };
 
         function Question2Incorrect () {
             "<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Sorry, </h2><br><p>The correct answer was: A hole</p>"
+            clearTimeout(Question2TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(Question3, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question3, 1000*4);
         };
 
         function Question2TimeOut () {
             $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Time Out!</h2><br><p>The correct answer was: A hole</p>")
+            clearTimeout(Question2TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(Question3, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question3, 1000*4);
         };
 
         $("#answer2").click(Question2Correct) 
@@ -101,8 +118,13 @@ $(document).ready(function() {
             $("#time_remaining").html(convertedTime)
         };
 
-        intID = setInterval(setTime,1000)
-        setTimeout(Question2TimeOut,1000*2); 
+        //controls the behavior of the onscreen timer
+        if (!clockRunning) {
+            timeLeft = 30;
+            intID = setInterval(setTime, 1000);
+            setTimeout(Question2TimeOut,1000*30);
+            clockRunning = true;
+        }
 
     };
 
@@ -112,23 +134,29 @@ $(document).ready(function() {
 
         function Question3Correct () {
             "<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Correct!</h2><br><p>The correct answer was: Paper</p>"
+            clearTimeout(Question3TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(Question4, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question4, 1000*4);
         };
 
         function Question3Incorrect () {
             "<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Sorry, </h2><br><p>The correct answer was: Paper</p>"
+            clearTimeout(Question3TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(Question4, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question4, 1000*4);
         };
 
         function Question3TimeOut () {
             $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Time Out!</h2><br><p>The correct answer was: Paper</p>")
+            clearTimeout(Question3TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(Question4, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question4, 1000*4);
         };
 
         $("#answer3").click(Question3Correct) 
@@ -140,8 +168,14 @@ $(document).ready(function() {
             $("#time_remaining").html(convertedTime)
         };
 
-        intID = setInterval(setTime,1000)
-        setTimeout(Question3TimeOut,1000*2); 
+        setTimeout(Question3TimeOut,1000*30); 
+
+        //controls the behavior of the onscreen timer
+        if (!clockRunning) {
+            timeLeft = 30;
+            intID = setInterval(setTime, 1000);
+            clockRunning = true;
+        }
 
     };
 
@@ -151,23 +185,29 @@ $(document).ready(function() {
 
         function Question4Correct () {
             "<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Correct!</h2><br><p>The correct answer was: A river</p>"
+            clearTimeout(Question4TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(Question5, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question5, 1000*4);
         };
 
         function Question4Incorrect () {
             "<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Sorry, </h2><br><p>The correct answer was: A river</p>"
+            clearTimeout(Question4TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(Question5, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question5, 1000*4);
         };
 
         function Question4TimeOut () {
             $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Time Out!</h2><br><p>The correct answer was: A river</p>")
+            clearTimeout(Question4TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(Question5, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question5, 1000*4);
         };
 
         $("#answer4").click(Question4Correct) 
@@ -179,8 +219,14 @@ $(document).ready(function() {
             $("#time_remaining").html(convertedTime)
         };
 
-        intID = setInterval(setTime,1000)
-        setTimeout(Question4TimeOut,1000*2); 
+        setTimeout(Question4TimeOut,1000*30);
+
+        //controls the behavior of the onscreen timer
+        if (!clockRunning) {
+            timeLeft = 30;
+            intID = setInterval(setTime, 1000);
+            clockRunning = true;
+        }
 
     };
 
@@ -190,23 +236,29 @@ $(document).ready(function() {
 
         function Question5Correct () {
             "<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Correct!</h2><br><p>The correct answer was: Regret</p>"
+            clearTimeout(Question5TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(Question6, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question6, 1000*4);
         };
 
         function Question5Incorrect () {
             "<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Sorry, </h2><br><p>The correct answer was: Regret</p>"
+            clearTimeout(Question5TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(Question6, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question6, 1000*4);
         };
 
         function Question5TimeOut () {
             $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Time Out!</h2><br><p>The correct answer was: Regret</p>")
+            clearTimeout(Question5TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(Question6, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(Question6, 1000*4);
         };
 
         $("#answer5").click(Question5Correct) 
@@ -218,8 +270,14 @@ $(document).ready(function() {
             $("#time_remaining").html(convertedTime)
         };
 
-        intID = setInterval(setTime,1000)
-        setTimeout(Question5TimeOut,1000*2); 
+        setTimeout(Question5TimeOut,1000*30); 
+
+        //controls the behavior of the onscreen timer
+        if (!clockRunning) {
+            timeLeft = 30;
+            intID = setInterval(setTime, 1000);
+            clockRunning = true;
+        }
 
     };
 
@@ -229,23 +287,29 @@ $(document).ready(function() {
 
         function Question6Correct () {
             "<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Correct!</h2><br><p>The correct answer was: The horizon</p>"
+            clearTimeout(Question6TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(EndPage, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(EndPage, 1000*4);
         };
 
         function Question6Incorrect () {
             "<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Sorry, </h2><br><p>The correct answer was: The horizon</p>"
+            clearTimeout(Question6TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(EndPage, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(EndPage, 1000*4);
         };
 
         function Question6TimeOut () {
             $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Time Out!</h2><br><p>The correct answer was: The horizon</p>")
+            clearTimeout(Question6TimeOut);
             clearInterval (intID);
-            timeLeft = 2;
-            setTimeout(EndPage, 1000*2);
+            clockRunning = false;
+            timeLeft = 4;
+            setTimeout(EndPage, 1000*4);
         };
 
         $("#answer6").click(Question6Correct) 
@@ -257,8 +321,14 @@ $(document).ready(function() {
             $("#time_remaining").html(convertedTime)
         };
 
-        intID = setInterval(setTime,1000)
-        setTimeout(Question6TimeOut,1000*2); 
+        setTimeout(Question6TimeOut,1000*30); 
+
+        //controls the behavior of the onscreen timer
+        if (!clockRunning) {
+            timeLeft = 30;
+            intID = setInterval(setTime, 1000);
+            clockRunning = true;
+        }
 
     };
 
