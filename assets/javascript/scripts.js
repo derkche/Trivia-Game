@@ -3,6 +3,7 @@ $(document).ready(function() {
     var intID 
     var timeLeft = 30;
     var clockRunning = false;
+    var score = 0;
 
     //  Takes the current time in seconds and convert it to minutes and seconds (mm:ss).
     function time_converter(t) {
@@ -40,8 +41,8 @@ $(document).ready(function() {
             clearTimeout(timeOutVar);
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question2, 1000*4);
+            score++
+            setTimeout(Question2, 1000*3);
             console.log("Question1Correct");
         };
 
@@ -51,7 +52,6 @@ $(document).ready(function() {
             clearTimeout(timeOutVar);
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
             setTimeout(Question2, 1000*4);
             console.log("Question1Incorrect");
         };
@@ -61,13 +61,13 @@ $(document).ready(function() {
             $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Time Out!</h2><br><p>The correct answer was: A towel</p>")
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question2, 1000*4);
+            setTimeout(Question2, 1000*3);
             console.log("Question1TimeOut");
         };
 
         $(document).on("click", "#answer1", Question1Correct);
         $(document).on("click", "#wrong_answer1", Question1Incorrect);
+        
         
         //if the clock is not running, sets the clock to running, and runs 'set time' every second
         if (!clockRunning) {
@@ -92,8 +92,8 @@ $(document).ready(function() {
             clearTimeout(timeOutVar);
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question3, 1000*4);
+            score++
+            setTimeout(Question3, 1000*3);
             console.log("Question2Correct");
         };
 
@@ -102,8 +102,7 @@ $(document).ready(function() {
             clearTimeout(timeOutVar);
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question3, 1000*4);
+            setTimeout(Question3, 1000*3);
             console.log("Question2Incorrect");
         };
 
@@ -111,8 +110,7 @@ $(document).ready(function() {
             $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Time Out!</h2><br><p>The correct answer was: A hole</p>")
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question3, 1000*4);
+            setTimeout(Question3, 1000*3);
             console.log("Question2TimeOut");
         };
 
@@ -141,8 +139,8 @@ $(document).ready(function() {
             clearTimeout(timeOutVar);
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question4, 1000*4);
+            score++
+            setTimeout(Question4, 1000*3);
             console.log("Question3Correct");
         };
 
@@ -151,8 +149,7 @@ $(document).ready(function() {
             clearTimeout(timeOutVar);
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question4, 1000*4);
+            setTimeout(Question4, 1000*3);
             console.log("Question3Incorrect");
         };
 
@@ -160,8 +157,7 @@ $(document).ready(function() {
             $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Time Out!</h2><br><p>The correct answer was: Paper</p>")
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question4, 1000*4);
+            setTimeout(Question4, 1000*3);
             console.log("Question3TimeOut");
         };
 
@@ -190,8 +186,8 @@ $(document).ready(function() {
             clearTimeout(timeOutVar);
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question5, 1000*4);
+            score++
+            setTimeout(Question5, 1000*3);
             console.log("Question4Correct");
         };
 
@@ -200,8 +196,7 @@ $(document).ready(function() {
             clearTimeout(timeOutVar);
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question5, 1000*4);
+            setTimeout(Question5, 1000*3);
             console.log("Question4Incorrect");
         };
 
@@ -209,8 +204,7 @@ $(document).ready(function() {
             $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Time Out!</h2><br><p>The correct answer was: A river</p>")
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question5, 1000*4);
+            setTimeout(Question5, 1000*3);
             console.log("Question4TimeOut");
         };
 
@@ -238,8 +232,8 @@ $(document).ready(function() {
             clearTimeout(timeOutVar);
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question6, 1000*4);
+            score++
+            setTimeout(Question6, 1000*3);
             console.log("Question5Correct");
         };
 
@@ -248,8 +242,7 @@ $(document).ready(function() {
             clearTimeout(timeOutVar);
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question6, 1000*4);
+            setTimeout(Question6, 1000*3);
             console.log("Question5Incorrect");
         };
 
@@ -257,8 +250,7 @@ $(document).ready(function() {
             $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Time Out!</h2><br><p>The correct answer was: Regret</p>")
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(Question6, 1000*4);
+            setTimeout(Question6, 1000*3);
             console.log("Question5TimeOut");
         };
 
@@ -286,8 +278,8 @@ $(document).ready(function() {
             clearTimeout(timeOutVar);
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(EndPage, 1000*4);
+            score++
+            setTimeout(EndPage, 1000*3);
             console.log("Question6Correct");
         };
 
@@ -296,8 +288,7 @@ $(document).ready(function() {
             clearTimeout(timeOutVar);
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(EndPage, 1000*4);
+            setTimeout(EndPage, 1000*3);
             console.log("Question6Incorrect");
         };
 
@@ -305,8 +296,7 @@ $(document).ready(function() {
             $("#question_card").html("<h4>Time Remaining: <span id='time_remaining'></span></h4><h2>Time Out!</h2><br><p>The correct answer was: The horizon</p>")
             clearInterval (intID);
             clockRunning = false;
-            timeLeft = 4;
-            setTimeout(EndPage, 1000*4);
+            setTimeout(EndPage, 1000*3);
             console.log("Question6TimeOut");
         };
 
@@ -326,7 +316,8 @@ $(document).ready(function() {
     };
 
     function EndPage () {
-        $("#question_card").html("How did you do?")
+        $("#question_card").html("<h4>Let's see how you did.</h4><br><p>"+ "You got " +score +"/6 correct!</p><br><p>Thats "+ score/6 +"%</p>")
+        console.log(score);
         console.log("Write EndPage to the page");
     };
 
