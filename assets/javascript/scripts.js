@@ -316,7 +316,7 @@ $(document).ready(function() {
     };
 
     function EndPage () {
-        $("#question_card").html("<h4>Let's see how you did.</h4><br><p>"+ "You got " +score +"/6 correct!</p><br><p>Thats "+ score/6 +"%</p>")
+        $("#question_card").html("<h4>Let's see how you did.</h4><br><p>"+ "You got " +score +"/6 correct!</p><br><p>Thats "+ ((score/6)*100) +"%</p>")
         console.log(score);
         console.log("Write EndPage to the page");
     };
